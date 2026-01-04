@@ -1,0 +1,9 @@
+{
+  "slug": "2025-12-02",
+  "title": "Created frontend merchant hooks to more easily allow for what content is shown",
+  "date": "2025-12-02",
+  "highlights": [
+    "Rolled out a new generic 'merchant hook' feature that allows merchants to have Nobi's frontend call custom JavaScript functions to determine what content to show. See more at https://docs.nobi.ai/customizing-nobi/hooks/",
+    "Added support for the first hook, which will allow merchants to control the 'shopper message' shown to shoppers for a particular product when search results are shown."
+  ]
+}

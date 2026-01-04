@@ -1,0 +1,8 @@
+{
+  "slug": "2025-09-18",
+  "title": "Improved ability for merchants to style chat drawer components",
+  "date": "2025-09-18",
+  "highlights": [
+    "Added new CSS variables and class names to allow merchants to customize the appearance of chat drawer components, including background color, font size, and button styles."
+  ]
+}

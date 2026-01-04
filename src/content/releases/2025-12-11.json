@@ -1,0 +1,8 @@
+{
+  "slug": "2025-12-11",
+  "title": "Fixed a component mounting bug",
+  "date": "2025-12-11",
+  "highlights": [
+    "Fixed a bug that caused some components to not mount if they weren't in the DOM at the time that Nobi was initialized."
+  ]
+}

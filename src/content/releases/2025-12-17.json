@@ -1,0 +1,8 @@
+{
+  "slug": "2025-12-17",
+  "title": "Adding out of stock filtering capabilities",
+  "date": "2025-12-17",
+  "highlights": [
+    "Added the ability for merchants to configure whether they want to show products that are out of stock, and an optional message if yes."
+  ]
+}

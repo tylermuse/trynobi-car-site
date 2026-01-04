@@ -1,0 +1,8 @@
+{
+  "slug": "2025-09-27",
+  "title": "Optimize Nobi's search bar for collection-page use",
+  "date": "2025-09-27",
+  "highlights": [
+    "Optimized Nobi's ability to detect when it is on a collections page and adjust its search behavior accordingly."
+  ]
+}

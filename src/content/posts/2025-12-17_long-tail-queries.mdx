@@ -1,0 +1,84 @@
+export const meta = {
+  title: "Handling long-tail natural language queries (i.e. 'red dress for a summer wedding')",
+  slug: "handling-long-tail-queries",
+  date: "2025-12-17",
+  publishedAt: "2025-12-17",
+  description: "Most search bars fail when shoppers speak like humans. Here is how Nobi uses AI and semantic search to decipher intent, turning complex requests into highly relevant search results.",
+  excerpt: "Most search bars fail when shoppers speak like humans. Here is how Nobi uses AI and semantic search to decipher intent, turning complex requests into highly relevant search results.",
+  tags: ["AI Search", "Merchandising", "Ecommerce Strategy", "Product Discovery", "Conversion Rate Optimization"],
+  author: "Shanif Dhanani",
+  heroImage: "https://storage.googleapis.com/nobi-public/docs_and_marketing_websites/posts/questions.webp",
+  featured: false,
+};
+
+We've all been trained to search like robots. We type "mens shirt blue" instead of "something cool to wear to a dinner party" because we know most search bars can't handle the nuance. But when a shopper *does* get specific, searching for something like **"red dress for a summer wedding"**, it is the highest signal of purchase intent a merchant can get.
+
+Unfortunately, it’s also where most ecommerce sites fail the hardest. Traditional search engines are surprisingly brittle; when a user types a complex query, one of two things usually happens:
+
+1.  **The "Keyword Salad" Result:** The search engine grabs anything with the word "red" or "wedding" in the description. You end up showing the customer a red wool sweater (matches "red") and a silver picture frame (matches "wedding").
+2.  **The ["Zero Results"](/blog/rag-prevents-zero-results) Dead End:** Because no single product description contains that exact 7-word phrase, the search engine gives up entirely.
+
+At Nobi, we believe the assistant should understand **intent**, not just keywords. We've built a conversational site and search assistant designed to handle these "long-tail" natural language queries gracefully.
+
+Here is how we turn a complex human sentence into a curated product shelf.
+
+## 1. The Detective Phase: Hard Constraint Extraction
+
+When a query lands in our system, we don't just pass it blindly to a database. It parses the sentence to extract **hard constraints**, specifically, the non-negotiable filters and attributes that a site visitor has specifically requested.
+
+This lets us identify specific variables that we can use to filter down the product catalog before we even start thinking about semantics:
+
+* **Price Ceilings:** We recognize "under $300" not as text, but as a logic filter (`price <= 300`).
+* **Color Detection:** We extract "Red" and map it to your product's color variants, including synonyms like "Crimson" or "Burgundy."
+* **Category Locking:** We identify "Dress" as the root category, immediately excluding accessories or tops.
+
+This step ensures precision. No matter how "summery" a pair of shorts might be, if the user asked for a dress, we ensure they only see dresses.
+
+## 2. The Semantic Phase: Understanding the ask
+
+This is where the magic happens. A standard database doesn't have a column for "Summer Wedding." To solve this, Nobi utilizes a hybrid **vector search** plus keyword matching approach.
+
+Instead of matching text, we translate the shopper's request into a multi-dimensional numerical vector. We then look for products that are *conceptually close* to that vector. This allows Nobi to understand the *implications* of a phrase like "Summer Wedding" without manual tagging:
+
+* **Material Awareness:** The AI prioritizes breathable fabrics like linen, silk, or chiffon, and downgrades heavy winter fabrics like wool or velvet.
+* **Style Nuance:** It looks for cocktail attire, midi or maxi lengths, and avoids overly casual cuts (t-shirt dresses) or overly formal ballgowns.
+* **Aesthetic Matching:** It boosts items with floral patterns or lighter, season-appropriate variations of red.
+
+This allows your catalog to respond intelligently to queries like "outfit for a job interview" or "cozy clothes for a ski trip" without you having to manually tag every SKU with those exact phrases.
+
+## 3. The Curator Phase: LLM Re-Ranking
+
+Once we have a candidate list of products that meet the hard constraints and the semantic vibe, we perform a final **Intelligent Re-Ranking** step.
+
+We use AI to review the final lineup, much like a merchandiser would. The AI analyzes the product titles and descriptions against the specific nuance of the user's request.
+
+* It boosts items that mention specific keywords from the user's query.
+* It filters out "technically correct but contextually wrong" matches.
+* It organizes the results to show the absolute best matches first.
+
+This ensures the user sees a "best-seller" list tailored exactly to their specific moment of need, rather than a random assortment of inventory.
+
+## Beyond Search: Dynamic Collections
+
+Nobi doesn't just return a list of links; it builds a shopping experience. When a user asks a complex question, Nobi dynamically generates a **custom collection** on the fly.
+
+For the query above, Nobi might create a temporary collection titled *"Red Wedding Guest Dresses"*. This gives the shopper a feeling of being in a curated boutique rather than browsing a database dump. It reduces cognitive load and makes the shopping experience feel personalized and premium.
+
+## The Business Impact
+
+Why does handling long-tail queries matter? Because specificity signals **high intent**.
+
+* A customer searching for "dress" is browsing.
+* A customer searching for *"Red dress for a summer wedding under $300"* is pulling out their credit card.
+
+If you fail to answer that specific query, you lose a sale that was practically handed to you. By combining the precision of hard filters with the intuition of AI, Nobi helps merchants capture this high-intent traffic, reducing bounce rates and increasing conversion on your most valuable searches.
+
+---
+
+**Test your own "long-tail" queries with Nobi today and see how AI-powered search can transform your ecommerce experience.**
+
+import DemoCTAButton from "../../components/DemoCTAButton";
+
+<div className="mt-8 max-w-sm">
+  <DemoCTAButton />
+</div>

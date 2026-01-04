@@ -1,0 +1,8 @@
+{
+  "slug": "2025-11-12",
+  "title": "Fixed a CSS bug with Nobi's custom elements",
+  "date": "2025-11-12",
+  "highlights": [
+    "Fixed a bug that was preventing merchant styles from taking effect on some of Nobi's custom elements."
+  ]
+}

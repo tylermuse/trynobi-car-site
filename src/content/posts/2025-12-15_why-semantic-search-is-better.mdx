@@ -1,0 +1,107 @@
+export const meta = {
+  title: "Why Your Customers Can't Find Products You Have in Stock",
+  slug: "semantic-search-vs-keyword-search",
+  date: "2025-12-10",
+  publishedAt: "2024-12-15",
+  description: "The hidden reason users bounce isn't inventory—it's search friction. Learn how semantic search eliminates the guessing game that keyword search forces on your customers.",
+  excerpt: "The hidden reason users bounce isn't inventory, it's search friction. Learn how semantic search eliminates the guessing game that keyword search forces on your customers.",
+  tags: ["semantic search", "ecommerce", "product discovery", "site search"],
+  author: "Shanif Dhanani",
+  heroImage: "https://storage.googleapis.com/nobi-public/docs_and_marketing_websites/posts/search.jpg",
+  featured: false,
+};
+
+# Your Customers Bounce When They Can't Find What They Want
+
+A friend of mine recently spent 10 minutes searching for a product on an ecommerce site. He knew they sold it. He'd seen it before. But no matter what he typed into the search bar, he couldn't find it. So he left.
+
+He didn't leave because the product was out of stock. He didn't leave because of price. He left because the search bar couldn't understand what he was asking for.
+
+This "Search Struggle" is common for ecommerce sites that are still using outdated search engines. And it's causing you to leave money on the table.
+
+## The Language Gap Between Users and Databases
+
+Here's what happens when someone searches your site for "men's breathable gym shirt":
+
+Your inventory has 50 products that would be perfect. But they're tagged as "Performance Top," "Ventilated Tee," or "Moisture-Wicking Athletic Wear." The search engine looks for the exact words "breathable" and "gym shirt," finds nothing that matches, and returns irrelevant results—or worse, nothing at all.
+
+The user doesn't think you're out of stock. They think your site is broken. So they open a new tab and search Amazon instead.
+
+This isn't a content problem or a merchandising problem. It's a technology problem.
+
+## Why Keyword Search Forces Users to Guess
+
+Traditional keyword search is a guessing game. It requires your customers to magically know the exact words your merchandising team used when they uploaded products three years ago.
+
+Think about how absurd this is:
+
+- User searches: "something warm for a winter wedding"
+- Database expects: "Formal Dress, Season: FW24, Attribute: Long Sleeve"
+
+These mean the same thing to a human. To a keyword search engine, they're completely unrelated.
+
+Every time a user has to refine their search, going from "winter wedding outfit" to "formal dress" to "long sleeve gown", you lose a chunk of them. By the third attempt, most have already bounced. In fact, in our user testing, most of them say they leave after seeing irrelevant results following the first bad search result page.
+
+The friction isn't the user's fault. They're describing what they want perfectly clearly. The search engine just doesn't speak human.
+
+## Semantic Search: Finally Speaking the Same Language
+
+Semantic search flips the script. Instead of forcing users to guess your database's vocabulary, it translates their intent into results automatically.
+
+The technology works by understanding concepts, not just matching characters. It knows that "breathable" and "ventilated" are related. It understands that "winter wedding" implies formal attire in heavier fabrics. It connects "sneakers" to "running shoes" without anyone manually creating that synonym.
+
+When a user types "red dress for a cocktail party under $200," semantic search understands:
+
+- "Red" includes burgundy, crimson, and wine
+- "Cocktail party" means a specific style and formality level
+- "Under $200" is a price filter, not a text string to match
+
+The user describes what they want once. The engine handles the translation.
+
+## Why RAG Takes This Further
+
+Standard semantic search handles synonyms well, but it can still get confused. Search for "apple" and you might get fruit mixed in with electronics. Search for "wedding guest book" when you wanted a "wedding guest dress" and basic vector matching might not catch the difference.
+
+This is where Retrieval-Augmented Generation (RAG) changes the game.
+
+RAG doesn't just find products that are conceptually similar to the query. It retrieves the actual product data and reads it—like a knowledgeable salesperson would—before deciding if it's truly relevant.
+
+When someone searches "cheap laptop for video editing," a RAG-powered search engine understands the tension in that query. "Video editing" demands a capable GPU. "Cheap" sets a budget constraint. Instead of just showing the cheapest laptops (which would be useless for video editing) or the best video editing laptops (which would blow the budget), it finds the sweet spot: the best value option that actually meets both criteria.
+
+That's not keyword matching. That's not even basic semantic similarity. That's understanding.
+
+## What This Actually Looks Like
+
+Remember the 10-minute search? With keyword search, that user had to iterate: "gym shirt" → "athletic top" → "workout tee" → "performance shirt", each attempt a guess at the magic word that would unlock the inventory.
+
+With semantic search, they type "men's breathable gym shirt" once. The engine understands "breathable" and "gym" as concepts, matches them to your "Ventilated Performance Tops," and shows relevant results immediately.
+
+No guessing. No frustration. No bounce. No zero-results page.
+
+That's the difference between search that forces users to speak database and search that actually listens.
+
+## How Nobi Gets This Right
+
+Nobi's site search assistant is built specifically for this problem. It combines the best parts of RAG and keyword search, using semantic understanding for intent and traditional full-text search for precision, so your customers get relevance without sacrificing speed.
+
+But the bigger shift is how site visitors interact with results.
+
+Most search engines treat filtering as a separate step. You search, then you click through dropdown menus: size, color, price, category. Each click is friction. Each filter is another chance for the user to give up.
+
+With Nobi, filtering is conversational. A user searches "running shoes," sees results, then types "only show me trail running, under $150." No dropdowns. No checkboxes. Just language.
+
+This isn't theoretical. Brands using Nobi see 10–30% improvements in conversion rates, frequently leading to hundreds of thousands of dollars in incremental revenue. That's not because the UI is prettier, it's because searchers actually find what they're looking for on the first try.
+
+## Getting Started
+
+Nobi integrates with your existing product catalog, no re-tagging, no data migration. Most brands are live within a few minutes. You keep your current infrastructure and Nobi handles the search layer and plugs into your site with just a couple of lines of code. You can even run it alongside your existing search engine to compare results side-by-side.
+
+---
+
+**Ready to see the difference?** Take your top 10 failed or refined search queries and run them through Nobi. See what your customers should have found the first time.
+
+import DemoCTAButton from "../../components/DemoCTAButton";
+
+<div className="mt-8 max-w-sm">
+  <DemoCTAButton />
+</div>

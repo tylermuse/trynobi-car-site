@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M289KWKR');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://assistant-script.nobi.ai" crossorigin>
+
+    <style>
+      :root {
+        --nobi-button-background: #000000;
+      }
+    </style>
+
+    <title>Nobi: Conversational search and site assistant to help you convert more customers</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://trynobi.com/" />
+
+    <!-- Basic SEO -->
+    <meta name="description" content="Nobi helps your customers find the right products faster with conversational AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trynobi.com/">
+    <meta property="og:title" content="Nobi — Conversational commerce">
+    <meta property="og:description" content="Turn product search into a conversation.">
+    <meta property="og:image" content="https://trynobi.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nobi — Conversational commerce">
+    <meta name="twitter:description" content="Turn product search into a conversation.">
+    <meta name="twitter:image" content="https://trynobi.com/og-image.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Organization",
+      "name":"Nobi",
+      "url":"https://trynobi.com/",
+      "logo":"https://trynobi.com/og-image.png",
+      "sameAs":[]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"WebSite",
+      "url":"https://trynobi.com/",
+      "potentialAction":{
+        "@type":"SearchAction",
+        "target":"https://trynobi.com/?q={search_term_string}",
+        "query-input":"required name=search_term_string"
+      }
+    }
+    </script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M289KWKR"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="root"></div>
+    <script type="module" src="src/main.jsx"></script>
+
+    <!-- Nobi Assistant -->
+    <script src="https://assistant-script.nobi.ai/nobi.bundle.js" onload="window.Nobi.initialize({ merchantId: '460cbe82-9195-424f-a616-b1cb3e3caca0' });"></script>
+
+    <!-- Page helpers -->
+    <script>
+      // Defer video load on tap
+      for (const cover of document.querySelectorAll('.video-cover')) {
+        cover.addEventListener('click', () => {
+          const v = cover.querySelector('video[data-defer]');
+          if (!v) return;
+          v.removeAttribute('data-defer');
+          v.setAttribute('playsinline','');
+          v.setAttribute('controls','');
+          v.load();
+          v.play().catch(()=>{});
+        }, { once: true });
+      }
+
+      // Lock body scroll when a drawer opens
+      const drawer = document.querySelector('.drawer');
+      const lock = (on) => document.body.style.overflow = on ? 'hidden' : '';
+      if (drawer) {
+        const mo = new MutationObserver(() => lock(drawer.getAttribute('aria-hidden') === 'false'));
+        mo.observe(drawer, { attributes:true, attributeFilter:['aria-hidden'] });
+      }
+
+      // Safe 100vh fallback
+      (function(){
+        const setVh = ()=> document.documentElement.style.setProperty('--vh', `${window.innerHeight*0.01}px`);
+        setVh(); window.addEventListener('resize', setVh);
+      })();
+    </script>
+  </body>
+</html>

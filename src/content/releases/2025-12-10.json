@@ -1,0 +1,8 @@
+{
+  "slug": "2025-12-10",
+  "title": "Updated conversion attribution calculations to handle product variant switches",
+  "date": "2025-12-10",
+  "highlights": [
+    "Updated conversion attribution calculations to properly attribute revenue when a shopper checks out with a different product variant than the one they originally clicked on."
+  ]
+}

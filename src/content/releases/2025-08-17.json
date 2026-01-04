@@ -1,0 +1,8 @@
+{
+  "slug": "2025-08-17",
+  "title": "Added support for programmatically opening Nobi",
+  "date": "2025-08-17",
+  "highlights": [
+    "Added a `Nobi.openChat()` method to programmatically open Nobi from merchant code. See more at https://docs.nobi.ai/components/javascript-api/."
+  ]
+}

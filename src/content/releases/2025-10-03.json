@@ -1,0 +1,9 @@
+{
+  "slug": "2025-10-03",
+  "title": "Rolled out typeahead dropdown",
+  "date": "2025-10-03",
+  "highlights": [
+    "Created a typeahead dropdown component that shows product suggestions as users type in the search bar, enhancing the search experience on merchant sites.",
+    "Improved accessibility on the typeahead dropdown that shows up when using Nobi's search bars, making it easier for keyboard and screen reader users to navigate and select products."
+  ]
+}

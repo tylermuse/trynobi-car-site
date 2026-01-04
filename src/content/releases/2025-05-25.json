@@ -1,0 +1,9 @@
+{
+  "slug": "2025-05-25",
+  "title": "Added agentic capabilities so Nobi can handle complicated conversational requests",
+  "date": "2025-05-25",
+  "highlights": [
+    "Added ability for Nobi to determine when to do a quick search vs. when to handle a more complicated conversational request.",
+    "Ability to show multiple product categories, broken down by subcollection"
+  ]
+}

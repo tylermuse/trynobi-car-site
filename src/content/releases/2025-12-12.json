@@ -1,0 +1,9 @@
+{
+  "slug": "2025-12-12",
+  "title": "Added better grouping of time series metrics in Nobi's dashboard. Added shopper messages to products in the typeahead dropdown.",
+  "date": "2025-12-12",
+  "highlights": [
+    "Improved grouping of time series metrics in Nobi's dashboard when large date ranges are selected.",
+    "Added the ability to show messages and badges to shoppers for a product in the typeahead dropdown that shows up when using Nobi's search bars."
+  ]
+}

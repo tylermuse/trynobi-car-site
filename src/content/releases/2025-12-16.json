@@ -1,0 +1,9 @@
+{
+  "slug": "2025-12-16",
+  "title": "Preview products affected by filtering & search by product ID",
+  "date": "2025-12-16",
+  "highlights": [
+    "Added ability to preview products affected by filtering when setting merchandising rules.",
+    "Added ability to search products by product ID from Nobi's search bar or inside the chat interface."
+  ]
+}

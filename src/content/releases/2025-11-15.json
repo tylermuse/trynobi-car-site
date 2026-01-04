@@ -1,0 +1,9 @@
+{
+  "slug": "2025-11-15",
+  "title": "Updated performance metrics page with comparisons and additional time series",
+  "date": "2025-11-15",
+  "highlights": [
+    "Performance metrics page now shows comparison metrics to previous periods for KPIs.",
+    "Added searchers & messagers, revenue, and orders time series to chart on the performance metrics page."
+  ]
+}

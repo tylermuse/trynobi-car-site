@@ -1,0 +1,8 @@
+{
+  "slug": "2025-07-21",
+  "title": "Improve Nobi's ability to answer questions",
+  "date": "2025-07-21",
+  "highlights": [
+    "Added optimizations so Nobi would know when to answer questins vs. when to search for products."
+  ]
+}

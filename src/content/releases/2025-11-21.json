@@ -1,0 +1,8 @@
+{
+  "slug": "2025-11-21",
+  "title": "Implemented spam categorization for user queries",
+  "date": "2025-11-21",
+  "highlights": [
+    "Implemented a spam categorization system that automatically identifies and filters out spam queries from users, improving the quality of search results and user experience. Used on the queries table on the performance metrics page."
+  ]
+}
