@@ -4,15 +4,12 @@ import Marquee from "react-fast-marquee";
 import LogoMarquee from "../components/LogoMarquee";
 import {
     ArrowRight,
-    BarChart3,
     CheckCircle2,
     Filter,
-    Heart,
     LayoutGrid,
     MessageCircleQuestion,
     MousePointerClick,
     PlayCircle,
-    Quote,
     Search as SearchIcon,
     ShoppingCart,
     Sparkles,
@@ -805,6 +802,76 @@ function HeroSkeletonLine({ w = "60%" }) {
 
 // --- HERO PREVIEW HELPERS (names are unique to avoid clashes) ---
 
+function HeroCarPreview() {
+  const [step, setStep] = React.useState(0);
+
+  React.useEffect(() => {
+    const t1 = setTimeout(() => setStep(1), 700);
+    const t2 = setTimeout(() => setStep(2), 1400);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
+  return (
+    <AspectBox ratio={16 / 9} ratioVar="--hero-preview-ratio">
+      <div className="absolute inset-0 px-4 pt-3 pb-0 flex flex-col gap-2">
+        <div className="text-xs uppercase tracking-[0.3em] text-black/40 dark:text-white/40">
+          Example Prompt
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-xl self-end rounded-2xl bg-black/5 text-black/80 px-4 py-3 text-sm leading-relaxed shadow-sm text-right"
+        >
+          Show me 4 door sedans with air conditioned seats and a sunroof for less than 60k.
+        </motion.div>
+        {step >= 1 && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-xl rounded-2xl bg-white/80 dark:bg-white/10 px-4 py-3 text-sm text-black/80 dark:text-white/80 shadow-sm"
+          >
+            Here are six 4‑door sedans under $60k with AC seats and a sunroof.
+          </motion.div>
+        )}
+        {step >= 2 && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-3 flex-1 overflow-y-auto"
+          >
+            {[
+              { name: "Toyota Camry XSE", price: "$42,900" },
+              { name: "Honda Accord Touring", price: "$48,500" },
+              { name: "Hyundai Sonata Limited", price: "$53,200" },
+              { name: "Mazda6 Signature", price: "$39,700" },
+              { name: "Kia K5 GT", price: "$57,950" },
+              { name: "Nissan Altima SR", price: "$45,300" },
+            ].map((car, i) => (
+              <div
+                key={`sedan-${i}`}
+                className="rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-2 shadow-sm"
+              >
+                <div className="aspect-[16/9] rounded-lg bg-black/5 dark:bg-white/10" />
+                <div className="mt-2 text-xs font-medium text-black/70 dark:text-white/70">
+                  {car.name}
+                </div>
+                <div className="text-xs text-black/50 dark:text-white/50">
+                  {car.price}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </div>
+    </AspectBox>
+  );
+}
 
 function Hero({ onOpenForm, onOpenVideo }) {
   const [searchMode, setSearchMode] = React.useState("ai");
@@ -832,7 +899,7 @@ function Hero({ onOpenForm, onOpenVideo }) {
           </h1>
 
           <p className="mt-4 text-lg text-black/70 dark:text-white/70">
-            Nobi drives 50%+ revenue improvements in your store through conversational AI
+            Nobi replaces your clunky search with AI search that drives a 30% improvement in conversion rates
           </p>
 
           {/* Same-row CTAs (works on mobile too) */}
@@ -852,40 +919,10 @@ function Hero({ onOpenForm, onOpenVideo }) {
 
           </div>
 
-        {/* Search bar */}
-        <div className="mt-6 max-w-4xl mx-auto">
-          <div className="p-4 rounded-2xl border border-fuchsia-200 bg-gradient-to-r from-fuchsia-50 to-pink-50 shadow-md">
-            <DualModeSearchBar
-              locked                                 // 👈 NEW: display-only
-              mode={searchMode}
-              onModeChange={setSearchMode}
-              defaultMode="ai"
-              size="regular"
-              onDemoSubmit={kickOffPreview}
-              onSubmit={kickOffPreview}
-            />
-          </div>
-        </div>
-
         {/* Preview card */}
         <div className="mt-4 max-w-5xl mx-auto">
-          <ConversationPreview mode={searchMode} playKey={playKey} query={lastQuery} />
-        </div>
-        <div className="mt-10 max-w-5xl mx-auto text-center">
-          <p className="text-sm font-semibold text-fuchsia-600">
-            Trusted by modern commerce
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-14 gap-y-8">
-            {CUSTOMER_LOGOS.map((logo) => (
-              <img
-                key={logo.alt}
-                src={logo.src}
-                alt={logo.alt}
-                className="h-8 w-28 object-contain select-none grayscale opacity-70 transition hover:grayscale-0 hover:opacity-100"
-                loading="lazy"
-                decoding="async"
-              />
-            ))}
+          <div className="hero-preview-panel w-full rounded-2xl border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 overflow-hidden shadow-inner">
+            <HeroCarPreview />
           </div>
         </div>
         <ScrollPreview sections={PREVIEW_SECTIONS} label="Next up" pillOptions={PILL_OPTIONS} />
@@ -1035,15 +1072,6 @@ const PILL_OPTIONS = [
   { id: "engage", label: "Engage more visitors", icon: LayoutGrid },
   { id: "answers", label: "Answer customer questions", icon: MessageCircleQuestion },
   { id: "api", label: "Launch AI on demand", icon: Sparkles },
-];
-
-const CUSTOMER_LOGOS = [
-  { alt: "UNTUCKit", src: "/media/logos/untuckit.svg" },
-  { alt: "Lucchese", src: "/media/logos/lucchese.svg" },
-  { alt: "Faherty", src: "/media/logos/faherty.svg" },
-  { alt: "TOOLUP", src: "/media/logos/toolup.svg" },
-  { alt: "Kilte", src: "/media/logos/kilte.svg" },
-  { alt: "Alps and Meters", src: "/media/logos/alps_meters.png" },
 ];
 
 const PILL_DETAILS = {
@@ -1405,80 +1433,6 @@ function Results() {
   );
 }
 
-function Testimonial() {
-  const leftRef = useRef(null);
-  const [leftHeight, setLeftHeight] = useState(0);
-
-  useEffect(() => {
-  if (!leftRef.current) return;
-  const el = leftRef.current;
-
-  // If ResizeObserver isn't supported, measure once and exit
-  if (typeof window === "undefined" || typeof window.ResizeObserver === "undefined") {
-    setLeftHeight(el.getBoundingClientRect().height || 320);
-    return;
-  }
-
-  const ro = new ResizeObserver(() => {
-    setLeftHeight(el.getBoundingClientRect().height);
-  });
-  ro.observe(el);
-  // Initial measure
-  setLeftHeight(el.getBoundingClientRect().height);
-
-  return () => ro.disconnect();
-}, []);
-
-  return (
-    <section id="testimonial" className="py-20 border-t border-black/5 dark:border-white/5">
-      <div className="mx-auto max-w-6xl px-6">
-        {/* Do NOT stretch children; align them to the start */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Quote card — natural height, not stretched */}
-          <div
-            ref={leftRef}
-            className="lg:col-span-2 self-start rounded-3xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-8 shadow-sm"
-          >
-            <Quote className="h-6 w-6 text-fuchsia-600 mb-4" />
-            <p className="text-2xl leading-snug font-medium text-black/90 dark:text-white">
-              “If you want to learn and be inspired, you should implement a tool like Nobi. We've seen great incremental results... but the biggest reason a brand should implement this is that you have the opportunity to apply more information towards optimizing
-              campaigns and your broader brand and e-comm goals.”
-            </p>
-            <div className="mt-6 flex items-center gap-4">
-              <img
-                src="/media/lourdes.png"
-                alt="Customer avatar"
-                className="h-10 w-10 rounded-full object-cover bg-black/10 dark:bg-white/10"
-              />
-              <div>
-                <div className="font-semibold">Lourdes Servin</div>
-                <div className="text-sm text-black/60 dark:text-white/60">
-                  Senior Dr. Digital & E-Commerce, Lucchese Bootmaker
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Photo card — height follows the quote, no inner padding, image covers */}
-          <div
-            className="self-start rounded-3xl border border-black/10 dark:border-white/10 overflow-hidden bg-white/70 dark:bg-white/5"
-            style={{
-              // Match the quote's height on desktop; give a safe minimum before we measure
-              height: leftHeight || 320,
-            }}
-          >
-            <img
-              src="/media/lucchese-testimonial-image.png" // <-- put your photo here
-              alt="Customer lifestyle"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function HowItWorks() {
   const steps = [
     { h: "Install the code", p: "Paste two snippets of code in your store. Nobi reads your catalog and adopts your branding." },
@@ -1559,184 +1513,6 @@ function HeatCell({ v = 0 }) {
   );
 }
 
-/* ========= Insights section ========= */
-function InsightsBar({ value, maxValue }) {
-  const pct = Math.max(0, Math.min(100, Math.round((value / maxValue) * 100)));
-  return (
-    <div className="h-2 w-full rounded-full bg-black/5 dark:bg-white/10">
-      <div
-        className="h-2 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500"
-        style={{ width: `${pct}%` }}
-      />
-    </div>
-  );
-}
-
-function InsightsHeatCell({ v = 0 }) {
-  const bg = `rgba(139, 92, 246, ${0.15 + v * 0.45})`;
-  const border = `rgba(0,0,0,0.06)`;
-  return (
-    <div
-      className="h-9 sm:h-10 md:h-11 flex items-center justify-center rounded-lg text-xs sm:text-sm font-medium"
-      style={{ backgroundColor: bg, border: `1px solid ${border}` }}
-      aria-label={`affinity ${Math.round(v * 100)}%`}
-    >
-      {Math.round(v * 100)}%
-    </div>
-  );
-}
-
-function Insights({ onOpenForm }) {
-  const intents = [
-    { label: "Buying a Gift", value: 124 },
-    { label: "Shopping for an upcoming trip", value: 96 },
-    { label: "Requesting sizing/fit", value: 88 },
-    { label: "Shopping by product type", value: 54 },
-  ];
-
-  const objections = [
-    { label: "Unsure about sizing/fit", value: 63 },
-    { label: "Shipping cost/timing", value: 49 },
-    { label: "Material care/durability", value: 31 },
-    { label: "Out of stock / color", value: 24 },
-  ];
-
-  const products = ["Button downs", "Polos", "Dresses"];
-  const attrs = ["Linen", "Gauze", "Terry"];
-  const affinity = {
-    "Button downs": { Linen: 0.78, "Gauze": 0.32, "Terry": 0.55 },
-    Polos: { Linen: 0.22, "Gauze": 0.81, "Terry": 0.08 },
-    "Dresses": { Linen: 0.93, "Gauze": 0.05, "Terry": 0.06 },
-  };
-
-  const max = (arr) => Math.max(...arr.map((d) => d.value));
-
-  return (
-    <section id="insights" className="scroll-mt-20 py-20 border-t border-black/5 dark:border-white/5">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <div>
-            <p className="text-sm font-semibold text-fuchsia-600">Insights</p>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mt-2">
-              Hear your customers... in their own words.
-            </h2>
-            <p className="mt-3 text-black/70 dark:text-white/70">
-              Nobi turns real conversations into structured signals. Your merchandising, creative, and CX teams have never moved faster.
-            </p>
-          </div>
-        </div>
-
-        {/* Grid */}
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Left column */}
-          <div className="space-y-6">
-            {/* Intents */}
-            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-sm">
-              <div className="font-semibold flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-fuchsia-600" />
-                Top customer intents
-              </div>
-              <div className="mt-4 space-y-3">
-                {intents.map((d) => (
-                  <div key={d.label}>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-black/80 dark:text-white/90">{d.label}</span>
-                      <span className="tabular-nums text-black/60 dark:text-white/60">{d.value}</span>
-                    </div>
-                    <InsightsBar value={d.value} maxValue={max(intents)} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Attribute affinity by product (heatmap) */}
-            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-sm">
-<div className="font-semibold flex items-center gap-2">
-  <Heart className="h-4 w-4 text-fuchsia-600" aria-hidden="true" />
-  Attribute affinity by product
-</div>
-              <p className="mt-1 text-xs text-black/60 dark:text-white/60">
-                Likelihood a shopper will request an attribute when browsing a product type.
-              </p>
-
-              <div className="mt-4 overflow-x-auto [-webkit-overflow-scrolling:touch]">
-                <div className="w-full">
-                  <div
-                    className="grid gap-2 sm:gap-3"
-                    style={{
-                      gridTemplateColumns: `clamp(112px, 20vw, 140px) repeat(${attrs.length}, minmax(clamp(58px, 8vw, 84px), 1fr))`,
-                    }}
-                  >
-                    <div />
-                    {attrs.map((a) => (
-                      <div key={a} className="px-2 py-1 text-xs sm:text-sm text-center text-black/70 dark:text-white/70">
-                        {a}
-                      </div>
-                    ))}
-                    {products.map((p) => (
-                      <React.Fragment key={p}>
-                        <div className="px-2 py-2 text-sm font-medium text-black/80 dark:text-white/90 flex items-center">
-                          {p}
-                        </div>
-                        {attrs.map((a) => (
-                          <InsightsHeatCell key={`${p}-${a}`} v={affinity[p][a] || 0} />
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right column */}
-          <div className="space-y-6">
-            {/* Objections */}
-            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-sm">
-              <div className="font-semibold flex items-center gap-2">
-                <BarChart3 className="h-4 w-4 text-fuchsia-600" />
-                Common objections & barriers
-              </div>
-              <div className="mt-4 space-y-3">
-                {objections.map((d) => (
-                  <div key={d.label}>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-black/80 dark:text-white/90">{d.label}</span>
-                      <span className="tabular-nums text-black/60 dark:text-white/60">{d.value}</span>
-                    </div>
-                    <InsightsBar value={d.value} maxValue={max(objections)} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Voice of customer */}
-            <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 shadow-sm">
-              <div className="font-semibold flex items-center gap-2">
-                <Quote className="h-4 w-4 text-fuchsia-600" />
-                Example Prompts
-              </div>
-              <div className="mt-3 space-y-3 text-sm text-black/80 dark:text-white/90">
-                <blockquote className="rounded-xl p-3 bg-black/5 dark:bg-white/10">
-                  “Shirts and pants for a boy going off to college (probably a large).”
-                </blockquote>
-                <blockquote className="rounded-xl p-3 bg-black/5 dark:bg-white/10">
-                  “Outfits for a trip to Puerto Vallarta for a girlfriend's 30th.”
-                </blockquote>
-                <blockquote className="rounded-xl p-3 bg-black/5 dark:bg-white/10">
-                  “Will the Legend shirt shrink in the wash?”
-                </blockquote>
-                 <blockquote className="rounded-xl p-3 bg-black/5 dark:bg-white/10">
-                  “Men's sale items in sizes small and medium and pants size 32.”
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function RequestDemoModal({ open, onClose }) {
   const [form, setForm] = React.useState({
@@ -2010,8 +1786,6 @@ export default function HomePage() {
         <Hero onOpenForm={onOpenForm} onOpenVideo={() => setIsVideoOpen(true)} />
         <Features />
         <Results />
-        <Insights onOpenForm={onOpenForm} />
-        <Testimonial />
         <HowItWorks />
         <LatestPosts />
         {SHOW_PRICING && <Pricing />}
@@ -2036,7 +1810,7 @@ export default function HomePage() {
         <VideoModal
             open={isVideoOpen}
             onClose={() => setIsVideoOpen(false)}
-            youtube="https://www.youtube.com/watch?v=RKqGC3CVZd0"
+            youtube="https://www.youtube.com/watch?v=XLAABPHeg2M"
         />
     </div>
   );
