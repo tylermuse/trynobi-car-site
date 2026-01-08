@@ -63,7 +63,7 @@ const PLACEMENTS = [
     icon: LayoutGrid,
     heading: "Keep collection shoppers exploring",
     why: "Place Nobi suggestion pills on PLPs/collections to nudge deeper browsing.",
-    outcome: "Longer sessions and more viewed products per visit.",
+    outcome: "Longer sessions and more viewed inventory per visit.",
     snippet:
       '<nobi-suggestion-pills pill-count="3"></nobi-suggestion-pills>',
     liveMarkup: (
@@ -1300,7 +1300,7 @@ function Features() {
           When to use Nobi
         </h2>
         <p className="mt-3 text-black/70 dark:text-white/70">
-          Nobi helps shoppers find what they need, answers their questions, and recommends products they are likely to buy through conversational AI.
+          Nobi helps shoppers find what they need, answers their questions, and recommends vehicles they are likely to buy through conversational AI.
         </p>
 
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
