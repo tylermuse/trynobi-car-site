@@ -1263,7 +1263,7 @@ function Features() {
       ctaLabel: "Learn More →",
       ctaHref: "/why-nobi/better-search",
       icon: <SearchIcon className="h-4 w-4" />,
-      media: { src: "/media/feature-ai-mode.mp4", alt: "" },
+      media: { src: "/media/feature-search-car.mp4", alt: "" },
     },
     {
       title: "Engage more visitors",
@@ -1272,12 +1272,12 @@ function Features() {
       ctaLabel: "Learn More →",
       ctaHref: "/why-nobi/better-search",
       icon: <Sparkles className="h-4 w-4" />,
-      media: { src: "/media/feature-qa.mp4", alt: "Collections assistant demo" },
+      media: { src: "/media/feature-ask-car.mp4", alt: "Collections assistant demo" },
     },
     {
-      title: "Increase cart size",
+      title: "Higher quality leads",
       desc:
-        "Recommend other products customers may want based on why they are shopping with you in the first place.",
+        "Separate out the noise and figure out who your high quality leads are by talking to them.",
       ctaLabel: "Learn More →",
       ctaHref: "/why-nobi/better-search",
       icon: <ShoppingCart className="h-4 w-4" />,
@@ -1365,8 +1365,7 @@ function Results() {
   const rows = [
     { metric: "Product Viewed",       defaultVal: "60.9%", nobiVal: "64.1%", impact: "+6.0%" },
     { metric: "Add to Cart",          defaultVal: "8.5%",  nobiVal: "11.5%", impact: "+35.3%" },
-    { metric: "Checkout Completed",   defaultVal: "2.4%",  nobiVal: "3.1%",  impact: "+29.2%" },
-    { metric: "Average Order Value",  defaultVal: "$231",  nobiVal: "$360",  impact: "+55.8%" },
+    { metric: "Lead Converted",   defaultVal: "2.4%",  nobiVal: "3.1%",  impact: "+29.2%" },
   ];
 
   return (
@@ -1377,7 +1376,7 @@ function Results() {
           Convert more traffic and drive more revenue.
         </h2>
         <p className="mt-3 text-black/70 dark:text-white/70">
-          Nobi has outperformed the default shopping experience in every A/B test we've ever run.
+          Nobi has outperformed the default search and browsing experience in every A/B test we've ever run.
         </p>
 
        <div className="mt-8">
