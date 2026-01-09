@@ -846,25 +846,30 @@ function HeroCarPreview() {
             className="grid grid-cols-2 md:grid-cols-3 gap-3 flex-1 overflow-y-auto"
           >
             {[
-              { name: "Toyota Camry XSE", price: "$42,900" },
-              { name: "Honda Accord Touring", price: "$48,500" },
-              { name: "Hyundai Sonata Limited", price: "$53,200" },
-              { name: "Mazda6 Signature", price: "$39,700" },
-              { name: "Kia K5 GT", price: "$57,950" },
-              { name: "Nissan Altima SR", price: "$45,300" },
+              { name: "Toyota Camry XSE", price: "$42,900", image: "/media/cars/camry-xse.jpg" },
+              { name: "Honda Accord Touring", price: "$48,500", image: "/media/cars/accord-touring.jpeg" },
+              { name: "Hyundai Sonata Limited", price: "$53,200", image: "/media/cars/sonata-limited.jpg" },
+              { name: "Mazda6 Signature", price: "$39,700", image: "/media/cars/mazda6-signature.jpg" },
+              { name: "Kia K5 GT", price: "$57,950", image: "/media/cars/kia-k5-gt.jpg" },
+              { name: "Nissan Altima SR", price: "$45,300", image: "/media/cars/altima-sr.jpg" },
             ].map((car, i) => (
               <div
-                key={`sedan-${i}`}
-                className="rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 p-2 shadow-sm"
-              >
-                <div className="aspect-[16/9] rounded-lg bg-black/5 dark:bg-white/10" />
-                <div className="mt-2 text-xs font-medium text-black/70 dark:text-white/70">
-                  {car.name}
+                  key={`sedan-${i}`}
+                  className="rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5
+  p-2 shadow-sm"
+                >
+                  <img
+                    src={car.image}
+                    alt={car.name}
+                    className="aspect-[16/9] w-full rounded-lg object-cover bg-black/5 dark:bg-white/10"
+                  />
+                  <div className="mt-2 text-xs font-medium text-black/70 dark:text-white/70">
+                    {car.name}
+                  </div>
+                  <div className="text-xs text-black/50 dark:text-white/50">
+                    {car.price}
+                  </div>
                 </div>
-                <div className="text-xs text-black/50 dark:text-white/50">
-                  {car.price}
-                </div>
-              </div>
             ))}
           </motion.div>
         )}
