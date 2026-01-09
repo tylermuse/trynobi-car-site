@@ -1282,11 +1282,11 @@ function Features() {
     {
       title: "Higher quality leads",
       desc:
-        "Separate out the noise and figure out who your high quality leads are by talking to them.",
+        "Separate out the noise and figure out who your high-quality leads are by talking to them.",
       ctaLabel: "Learn More →",
       ctaHref: "/why-nobi/better-search",
       icon: <ShoppingCart className="h-4 w-4" />,
-      media: { src: "/media/cross-sell.mp4", alt: "Capture bouncers demo", objectPosition: "right center" },
+      media: { src: "/media/lead-data.png", alt: "Capture bouncers demo", objectPosition: "right center" },
     },
   ];
 
