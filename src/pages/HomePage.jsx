@@ -1268,7 +1268,7 @@ function Features() {
       ctaLabel: "Learn More →",
       ctaHref: "/why-nobi/better-search",
       icon: <SearchIcon className="h-4 w-4" />,
-      media: { src: "/media/feature-search-car.mp4", alt: "" },
+      media: { src: "/media/feature-search-car.mp4", alt: "", objectPosition: "right center" },
     },
     {
       title: "Engage more visitors",
