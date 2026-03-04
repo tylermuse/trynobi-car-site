@@ -1814,7 +1814,7 @@ export default function HomePage() {
         <VideoModal
             open={isVideoOpen}
             onClose={() => setIsVideoOpen(false)}
-            youtube="https://www.youtube.com/watch?v=XLAABPHeg2M"
+            youtube="https://www.youtube.com/watch?v=H6ByvABM_BM"
         />
     </div>
   );
