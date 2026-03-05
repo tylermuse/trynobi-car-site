@@ -8,12 +8,13 @@ export const posts = Object.entries(modules)
     return {
       slug,
       meta: {
+        ...mod.meta,
         title: mod.meta?.title || slug,
         date: mod.meta?.date || new Date().toISOString(),
         excerpt: mod.meta?.excerpt || '',
         tags: mod.meta?.tags || [],
         author: mod.meta?.author || 'Nobi Team',
-        heroImage: mod.meta?.heroImage || null, // can be imported asset or URL string
+        heroImage: mod.meta?.heroImage || null,
         featured: Boolean(mod.meta?.featured),
         draft: Boolean(mod.meta?.draft),
       },

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="statShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg4)"/>
+
+  <!-- Title -->
+  <text x="600" y="50" fill="#e2e8f0" font-size="24" font-weight="700" text-anchor="middle">Why Dealers Need AI on Their Websites</text>
+  <text x="600" y="78" fill="#64748b" font-size="15" font-weight="400" text-anchor="middle">The numbers behind the shift to AI-powered shopping</text>
+
+  <!-- Stat cards -->
+  <!-- Stat 1 -->
+  <g filter="statShadow" transform="translate(50, 110)">
+    <rect x="0" y="0" width="250" height="220" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="60" fill="#3b82f6" font-size="56" font-weight="800" text-anchor="middle">95%</text>
+    <text x="125" y="92" fill="#94a3b8" font-size="14" font-weight="500" text-anchor="middle">of website visitors</text>
+    <line x1="40" y1="112" x2="210" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="142" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">leave without</text>
+    <text x="125" y="164" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">becoming a lead</text>
+    <text x="125" y="200" fill="#475569" font-size="11" font-weight="400" text-anchor="middle">Avg. dealer conversion: 3-5%</text>
+  </g>
+
+  <!-- Stat 2 -->
+  <g filter="statShadow" transform="translate(340, 110)">
+    <rect x="0" y="0" width="250" height="220" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="60" fill="#8b5cf6" font-size="56" font-weight="800" text-anchor="middle">13.5h</text>
+    <text x="125" y="92" fill="#94a3b8" font-size="14" font-weight="500" text-anchor="middle">spent researching</text>
+    <line x1="40" y1="112" x2="210" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="142" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">the average car</text>
+    <text x="125" y="164" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">buying journey online</text>
+    <text x="125" y="200" fill="#475569" font-size="11" font-weight="400" text-anchor="middle">Cox Automotive 2024 Study</text>
+  </g>
+
+  <!-- Stat 3 -->
+  <g filter="statShadow" transform="translate(630, 110)">
+    <rect x="0" y="0" width="250" height="220" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="60" fill="#10b981" font-size="56" font-weight="800" text-anchor="middle">9/10</text>
+    <text x="125" y="92" fill="#94a3b8" font-size="14" font-weight="500" text-anchor="middle">car buyers</text>
+    <line x1="40" y1="112" x2="210" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="142" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">research online</text>
+    <text x="125" y="164" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">before contacting</text>
+    <text x="125" y="186" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">a dealer</text>
+    <text x="125" y="210" fill="#475569" font-size="11" font-weight="400" text-anchor="middle">Google Automotive Study</text>
+  </g>
+
+  <!-- Stat 4 -->
+  <g filter="statShadow" transform="translate(920, 110)">
+    <rect x="0" y="0" width="250" height="220" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="60" fill="#f59e0b" font-size="48" font-weight="800" text-anchor="middle">$250K</text>
+    <text x="125" y="92" fill="#94a3b8" font-size="14" font-weight="500" text-anchor="middle">per year</text>
+    <line x1="40" y1="112" x2="210" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="125" y="142" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">to run an in-house</text>
+    <text x="125" y="164" fill="#e2e8f0" font-size="15" font-weight="500" text-anchor="middle">BDC team</text>
+    <text x="125" y="200" fill="#475569" font-size="11" font-weight="400" text-anchor="middle">Better Car People Research</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="200" y="360" width="800" height="3" rx="1.5" fill="#334155"/>
+  <text x="600" y="388" fill="#475569" font-size="12" font-weight="400" text-anchor="middle">Sources: Cox Automotive 2024 Car Buyer Journey Study · Google Automotive Study · Better Car People</text>
+</svg>
