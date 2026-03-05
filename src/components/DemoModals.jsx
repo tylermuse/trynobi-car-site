@@ -60,8 +60,7 @@ export function RequestDemoModal({ open, onClose }) {
 
       const j = await r.json();
       if (!r.ok || !j.success) throw new Error(j.message || "Something went wrong.");
-      setDone(true);
-      window.open("https://calendly.com/nobi", "_blank");
+      window.location.href = "https://calendly.com/nobi";
     } catch (err) {
       setError(err.message || "Failed to submit.");
     } finally {
