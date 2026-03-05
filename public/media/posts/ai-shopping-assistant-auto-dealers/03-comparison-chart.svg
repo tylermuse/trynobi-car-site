@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    <filter id="barShadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg3)"/>
+
+  <!-- Title -->
+  <text x="600" y="50" fill="#0f172a" font-size="26" font-weight="700" text-anchor="middle">AI Assistant vs. Live Chat vs. BDC: At a Glance</text>
+
+  <!-- Legend -->
+  <g transform="translate(350, 70)">
+    <rect x="0" y="0" width="16" height="16" rx="3" fill="#3b82f6"/>
+    <text x="24" y="13" fill="#475569" font-size="14" font-weight="500">AI Shopping Assistant</text>
+    <rect x="200" y="0" width="16" height="16" rx="3" fill="#f59e0b"/>
+    <text x="224" y="13" fill="#475569" font-size="14" font-weight="500">Live Chat</text>
+    <rect x="370" y="0" width="16" height="16" rx="3" fill="#94a3b8"/>
+    <text x="394" y="13" fill="#475569" font-size="14" font-weight="500">Traditional BDC</text>
+  </g>
+
+  <!-- Chart area -->
+  <g transform="translate(80, 110)">
+
+    <!-- Category 1: Availability -->
+    <text x="0" y="30" fill="#0f172a" font-size="15" font-weight="600">Availability</text>
+    <g filter="barShadow">
+      <rect x="200" y="12" width="700" height="24" rx="4" fill="#3b82f6"/>
+      <text x="210" y="29" fill="#ffffff" font-size="12" font-weight="600">24/7 instant responses</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="42" width="350" height="24" rx="4" fill="#f59e0b"/>
+      <text x="210" y="59" fill="#ffffff" font-size="12" font-weight="600">Staffed hours only</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="72" width="420" height="24" rx="4" fill="#94a3b8"/>
+      <text x="210" y="89" fill="#ffffff" font-size="12" font-weight="600">Business hours (8am-8pm)</text>
+    </g>
+
+    <!-- Category 2: Response Time -->
+    <text x="0" y="142" fill="#0f172a" font-size="15" font-weight="600">Response Time</text>
+    <g filter="barShadow">
+      <rect x="200" y="124" width="700" height="24" rx="4" fill="#3b82f6"/>
+      <text x="210" y="141" fill="#ffffff" font-size="12" font-weight="600">Under 5 seconds</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="154" width="280" height="24" rx="4" fill="#f59e0b"/>
+      <text x="210" y="171" fill="#ffffff" font-size="12" font-weight="600">30 sec to minutes</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="184" width="140" height="24" rx="4" fill="#94a3b8"/>
+      <text x="210" y="201" fill="#ffffff" font-size="12" font-weight="600">Min to hours</text>
+    </g>
+
+    <!-- Category 3: Consistency -->
+    <text x="0" y="254" fill="#0f172a" font-size="15" font-weight="600">Consistency</text>
+    <g filter="barShadow">
+      <rect x="200" y="236" width="700" height="24" rx="4" fill="#3b82f6"/>
+      <text x="210" y="253" fill="#ffffff" font-size="12" font-weight="600">Same quality every interaction</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="266" width="350" height="24" rx="4" fill="#f59e0b"/>
+      <text x="210" y="283" fill="#ffffff" font-size="12" font-weight="600">Varies by agent</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="296" width="300" height="24" rx="4" fill="#94a3b8"/>
+      <text x="210" y="313" fill="#ffffff" font-size="12" font-weight="600">Varies by rep</text>
+    </g>
+
+    <!-- Category 4: Volume Handling -->
+    <text x="0" y="366" fill="#0f172a" font-size="15" font-weight="600">Scales with Traffic</text>
+    <g filter="barShadow">
+      <rect x="200" y="348" width="700" height="24" rx="4" fill="#3b82f6"/>
+      <text x="210" y="365" fill="#ffffff" font-size="12" font-weight="600">Handles unlimited concurrent shoppers</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="378" width="200" height="24" rx="4" fill="#f59e0b"/>
+      <text x="210" y="395" fill="#ffffff" font-size="12" font-weight="600">Needs more staff</text>
+    </g>
+    <g filter="barShadow">
+      <rect x="200" y="408" width="200" height="24" rx="4" fill="#94a3b8"/>
+      <text x="210" y="425" fill="#ffffff" font-size="12" font-weight="600">Needs more staff</text>
+    </g>
+  </g>
+
+  <!-- Bottom note -->
+  <rect x="80" y="555" width="1040" height="32" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="600" y="576" fill="#1e40af" font-size="13" font-weight="500" text-anchor="middle">AI assistants don't replace your team. They handle the high-volume work so your sales reps can focus on closing.</text>
+</svg>
