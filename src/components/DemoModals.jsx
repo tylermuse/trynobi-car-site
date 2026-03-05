@@ -61,6 +61,7 @@ export function RequestDemoModal({ open, onClose }) {
       const j = await r.json();
       if (!r.ok || !j.success) throw new Error(j.message || "Something went wrong.");
       setDone(true);
+      window.open("https://calendly.com/nobi", "_blank");
     } catch (err) {
       setError(err.message || "Failed to submit.");
     } finally {
@@ -174,7 +175,13 @@ export function RequestDemoModal({ open, onClose }) {
         ) : (
           <div className="mt-4">
             <p className="text-black/80 dark:text-white/90">
-              Thanks! We've received your request and will reach out shortly.
+              Thanks! A scheduling page has been opened — pick a time that works for you.
+            </p>
+            <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+              Didn't see it?{" "}
+              <a href="https://calendly.com/nobi" target="_blank" rel="noopener noreferrer" className="underline hover:text-black dark:hover:text-white">
+                Click here to book a time
+              </a>
             </p>
             <div className="mt-4">
               <Button onClick={onClose}>Close</Button>
