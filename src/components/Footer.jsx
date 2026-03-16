@@ -37,6 +37,9 @@ export default function Footer() {
           <div className="space-y-2">
             <div className="font-semibold text-black dark:text-white">Resources</div>
             <div className="flex flex-col gap-2">
+              <a href="/tools/vdp-writer" className="hover:opacity-80">
+                VDP Description Writer
+              </a>
               <a href="/blog" className="hover:opacity-80">
                 Thoughts
               </a>

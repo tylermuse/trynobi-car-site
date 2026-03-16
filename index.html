@@ -83,8 +83,15 @@
     <div id="root"></div>
     <script type="module" src="src/main.jsx"></script>
 
-    <!-- Nobi Assistant -->
-    <script src="https://assistant-script.nobi.ai/nobi.bundle.js" onload="window.Nobi.initialize({ merchantId: '460cbe82-9195-424f-a616-b1cb3e3caca0' });"></script>
+    <!-- Nobi Assistant (production only — widget replaces DOM in local dev) -->
+    <script>
+      if (window.location.hostname !== 'localhost') {
+        var s = document.createElement('script');
+        s.src = 'https://assistant-script.nobi.ai/nobi.bundle.js';
+        s.onload = function() { window.Nobi.initialize({ merchantId: '460cbe82-9195-424f-a616-b1cb3e3caca0' }); };
+        document.body.appendChild(s);
+      }
+    </script>
 
     <!-- Page helpers -->
     <script>
