@@ -96,9 +96,9 @@ function FeatureInput({ features, onChange }) {
           className="flex-1 min-w-[120px] bg-transparent outline-none text-sm placeholder:text-black/40 dark:placeholder:text-white/40"
         />
       </div>
-      {features.length === 0 && (
+      {EXAMPLE_FEATURES.filter((f) => !features.includes(f)).length > 0 && (
         <div className="flex flex-wrap gap-1.5 mt-2">
-          {EXAMPLE_FEATURES.slice(0, 6).map((f) => (
+          {EXAMPLE_FEATURES.filter((f) => !features.includes(f)).map((f) => (
             <button
               key={f}
               type="button"
