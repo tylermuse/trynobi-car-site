@@ -15,6 +15,7 @@ export default function Nav() {
     { label: "Why Nobi", href: "/why-nobi/better-search" },
     { label: "FAQs", href: "/faqs" },
     { label: "Docs", href: "https://docs.nobi.ai", external: true },
+    { label: "VDP Writer", href: "/tools/vdp-writer" },
   ];
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
