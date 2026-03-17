@@ -1,7 +1,7 @@
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
 function buildPrompt(data) {
-  const { year, make, model, trim, mileage, price, features, condition, tone } =
+  const { year, make, model, trim, mileage, price, features, condition, tone, voice } =
     data;
 
   const vehicle = [year, make, model, trim].filter(Boolean).join(" ");
@@ -29,12 +29,13 @@ function buildPrompt(data) {
   return `You are an expert automotive copywriter who writes compelling vehicle descriptions for dealer listings. Your descriptions sell vehicles by highlighting specific features that buyers care about.
 
 RULES:
+- Output plain text only. No markdown formatting, no asterisks, no bullet point characters, no bold/italic markers. The output will be pasted directly into dealer listing sites.
 - NEVER fabricate features, specs, or details not provided in the input
 - Use specific numbers naturally (mileage, price)
 - Avoid generic filler like "This vehicle is a great choice for anyone looking for..."
 - Lead with the most compelling feature for this vehicle type
 - Use automotive language that sounds natural, not jargon-heavy
-- ${toneGuide[tone] || toneGuide.professional}
+- ${toneGuide[tone] || toneGuide.professional}${voice ? `\n- DEALERSHIP VOICE: The dealer describes themselves as: "${voice}". Match this voice and personality in your writing style.` : ""}
 
 VEHICLE: ${vehicle}
 MILEAGE: ${mileageStr}
@@ -63,7 +64,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "API key not configured" });
   }
 
-  const { year, make, model, features, tone, trim, mileage, price, condition } =
+  const { year, make, model, features, tone, trim, mileage, price, condition, voice } =
     req.body || {};
 
   if (!year || !make || !model) {
@@ -79,6 +80,7 @@ export default async function handler(req, res) {
     price,
     features: features || [],
     condition,
+    voice,
     tone: tone || "professional",
   });
 

@@ -346,6 +346,7 @@ export default function VDPWriter() {
     price: "",
     features: [],
     condition: "",
+    voice: "",
     tone: "professional",
   });
   const [descriptions, setDescriptions] = useState(null);
@@ -596,6 +597,20 @@ export default function VDPWriter() {
                 value={form.condition}
                 onChange={(e) => updateField("condition", e.target.value)}
                 placeholder="e.g. One owner, clean CarFax, dealer serviced"
+                rows={2}
+                className={`${inputClass} resize-none`}
+              />
+            </div>
+
+            {/* Dealership Voice */}
+            <div>
+              <label className="block text-sm font-medium mb-1.5">
+                Dealership Voice <span className="font-normal text-black/40 dark:text-white/40">(optional)</span>
+              </label>
+              <textarea
+                value={form.voice}
+                onChange={(e) => updateField("voice", e.target.value)}
+                placeholder="e.g. We're a family-owned Ford dealer in Texas, keep it casual and warm"
                 rows={2}
                 className={`${inputClass} resize-none`}
               />
