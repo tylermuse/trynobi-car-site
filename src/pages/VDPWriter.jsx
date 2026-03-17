@@ -96,9 +96,9 @@ function FeatureInput({ features, onChange }) {
           className="flex-1 min-w-[120px] bg-transparent outline-none text-sm placeholder:text-black/40 dark:placeholder:text-white/40"
         />
       </div>
-      {features.length === 0 && (
+      {EXAMPLE_FEATURES.filter((f) => !features.includes(f)).length > 0 && (
         <div className="flex flex-wrap gap-1.5 mt-2">
-          {EXAMPLE_FEATURES.slice(0, 6).map((f) => (
+          {EXAMPLE_FEATURES.filter((f) => !features.includes(f)).map((f) => (
             <button
               key={f}
               type="button"
@@ -248,6 +248,75 @@ function VINLookup({ onResult }) {
   );
 }
 
+function BulkUploadCTA() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    try {
+      await fetch("/api/bulk-waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "vdp-writer-bulk-cta" }),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (submitted) {
+    return (
+      <div className="mt-8 rounded-xl border border-black/10 dark:border-white/10 bg-black/[.02] dark:bg-white/[.02] p-8 text-center">
+        <p className="text-lg font-semibold">You're in!</p>
+        <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+          Check your inbox — we'll send you access to the bulk uploader shortly.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-8 rounded-xl border border-black/10 dark:border-white/10 bg-black/[.02] dark:bg-white/[.02] p-8">
+      <div className="text-center">
+        <p className="text-lg font-semibold">
+          Need descriptions for your whole lot?
+        </p>
+        <p className="mt-2 text-sm text-black/60 dark:text-white/60">
+          Upload a CSV of your inventory and get descriptions for every vehicle
+          — in bulk, in seconds.
+        </p>
+      </div>
+      <form onSubmit={handleSubmit} className="mt-6 flex gap-3">
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="your@dealership.com"
+          className="flex-1 rounded-xl border border-black/15 dark:border-white/15 bg-white dark:bg-white/5 px-4 py-2.5 text-sm placeholder:text-black/40 dark:placeholder:text-white/40 outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20"
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          className="whitespace-nowrap rounded-xl bg-black dark:bg-white px-5 py-2.5 text-sm font-medium text-white dark:text-black hover:opacity-80 disabled:opacity-50 transition"
+        >
+          {loading ? "..." : "Get Bulk Access →"}
+        </button>
+      </form>
+      <p className="mt-3 text-center text-xs text-black/40 dark:text-white/40">
+        No spam. Just the tool.
+      </p>
+    </div>
+  );
+}
+
 const FAQ_ITEMS = [
   {
     q: "Is this vehicle description writer really free?",
@@ -277,6 +346,7 @@ export default function VDPWriter() {
     price: "",
     features: [],
     condition: "",
+    voice: "",
     tone: "professional",
   });
   const [descriptions, setDescriptions] = useState(null);
@@ -532,6 +602,20 @@ export default function VDPWriter() {
               />
             </div>
 
+            {/* Dealership Voice */}
+            <div>
+              <label className="block text-sm font-medium mb-1.5">
+                Dealership Voice <span className="font-normal text-black/40 dark:text-white/40">(optional)</span>
+              </label>
+              <textarea
+                value={form.voice}
+                onChange={(e) => updateField("voice", e.target.value)}
+                placeholder="e.g. We're a family-owned Ford dealer in Texas, keep it casual and warm"
+                rows={2}
+                className={`${inputClass} resize-none`}
+              />
+            </div>
+
             {/* Tone */}
             <div>
               <label className="block text-sm font-medium mb-1.5">Tone</label>
@@ -591,6 +675,9 @@ export default function VDPWriter() {
                   See what else Nobi can do &rarr;
                 </a>
               </p>
+
+              {/* Bulk Upload CTA */}
+              <BulkUploadCTA />
             </div>
           )}
         </div>
