@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound.jsx";
 import DealerAIChatLanding from "./pages/landing/DealerAIChatLanding.jsx";
 import DealerChatbotLanding from "./pages/landing/DealerChatbotLanding.jsx";
 import AutoAIAssistantLanding from "./pages/landing/AutoAIAssistantLanding.jsx";
+import DemoThankYou from "./pages/landing/DemoThankYou.jsx";
 import { RequestDemoModal } from "./components/DemoModals.jsx";
 
 import { DemoFormProvider } from "./context/DemoFormContext.jsx";
@@ -29,6 +30,7 @@ function App() {
         <Route path="/landing/dealer-ai-chat" element={<DealerAIChatLanding />} />
         <Route path="/landing/dealer-chatbot" element={<DealerChatbotLanding />} />
         <Route path="/landing/auto-ai-assistant" element={<AutoAIAssistantLanding />} />
+        <Route path="/landing/demo-thank-you" element={<DemoThankYou />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />

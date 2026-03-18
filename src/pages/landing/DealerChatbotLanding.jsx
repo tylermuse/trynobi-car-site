@@ -8,6 +8,7 @@ import {
   Sparkles,
   Check,
 } from "lucide-react";
+import LandingDemoForm from "./LandingDemoForm";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -26,7 +27,7 @@ function CTAButton({ size = "lg", children, className = "" }) {
   };
   return (
     <a
-      href="mailto:tyler@trynobi.com?subject=Demo%20Request"
+      href="#demo-form"
       className={`inline-flex items-center justify-center gap-2 rounded-2xl font-semibold transition-all bg-black text-white shadow-sm hover:opacity-90 active:scale-[0.98] ${sizes[size]} ${className}`}
     >
       {children}
@@ -376,16 +377,18 @@ export default function DealerChatbotLanding() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="bg-gradient-to-b from-[#17122f] to-[#1c1540] px-6 py-20 text-center text-white">
-        <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-semibold mb-4">
-          Upgrade your dealership chatbot
-        </h2>
-        <p className="text-base text-slate-300 max-w-lg mx-auto mb-8">
-          See the difference between a lead-capture bot and an AI that actually helps shoppers find cars on your lot.
-        </p>
-        <CTAButton size="xl">Book a Demo</CTAButton>
-        <p className="mt-5 text-sm text-slate-500">
+      {/* Closing CTA + Form */}
+      <section id="demo-form" className="bg-gradient-to-b from-[#17122f] to-[#1c1540] px-6 py-20 scroll-mt-14">
+        <div className="text-center text-white mb-10">
+          <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-semibold mb-4">
+            Upgrade your dealership chatbot
+          </h2>
+          <p className="text-base text-slate-300 max-w-lg mx-auto">
+            See the difference between a lead-capture bot and an AI that actually helps shoppers find cars on your lot.
+          </p>
+        </div>
+        <LandingDemoForm source="Dealer Chatbot Landing" />
+        <p className="mt-6 text-sm text-slate-500 text-center">
           Or reach out directly:{" "}
           <a href="mailto:tyler@trynobi.com" className="text-violet-400">
             tyler@trynobi.com
