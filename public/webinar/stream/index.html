@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webinar: Your Shoppers Are Already Using AI to Buy Cars — Is Your Website Ready?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-page: #ffffff;
+      --bg-card: #f8f8fa;
+      --bg-card-alt: #f1f1f5;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --accent-purple: #7c3aed;
+      --accent-pink: #db2777;
+      --accent-indigo: #6366f1;
+      --gradient: linear-gradient(120deg, #7c3aed, #db2777);
+      --gradient-subtle: linear-gradient(120deg, rgba(124,58,237,0.08), rgba(219,39,119,0.08));
+      --border-color: rgba(0,0,0,0.06);
+      /* Stream Companies brand */
+      --stream-orange: #e8732a;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .nav-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .nav-logos span.divider {
+      color: var(--text-secondary);
+      font-size: 1.25rem;
+      opacity: 0.3;
+    }
+    .logo-nobi {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .logo-nobi .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gradient);
+    }
+    .logo-stream {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo-stream img {
+      height: 32px;
+      width: auto;
+    }
+    .logo-stream-text {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--stream-orange);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient-subtle);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-purple);
+      margin-bottom: 1.75rem;
+    }
+    .badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-pink);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .highlight {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p.subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .meta-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--accent-purple);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .meta-item strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(124,58,237,0.4);
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section-heading {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-purple);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    /* ── AGENDA ── */
+    .agenda {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+    }
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .timeline-item:hover {
+      border-color: rgba(124,58,237,0.25);
+      background: var(--bg-card-alt);
+    }
+    .time-badge {
+      background: var(--gradient-subtle);
+      color: var(--accent-purple);
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      white-space: nowrap;
+    }
+    .timeline-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .timeline-item p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .timeline-item .presenter {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-pink);
+      margin-top: 0.5rem;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      padding-bottom: 4rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-size: 2.25rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    .stat-card .label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+    }
+
+    /* ── SPEAKERS ── */
+    .speakers {
+      padding-bottom: 4rem;
+    }
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .speaker-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .speaker-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      overflow: hidden;
+    }
+    .speaker-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .speaker-avatar.nobi { background: var(--gradient); }
+    .speaker-avatar.stream { background: var(--stream-orange); }
+    .speaker-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .speaker-card .role {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    .speaker-card .company {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.5rem;
+    }
+    .speaker-card .company.nobi { color: var(--accent-purple); }
+    .speaker-card .company.stream { color: var(--stream-orange); }
+    .speaker-card .bio {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.75rem;
+      line-height: 1.55;
+    }
+
+    /* ── AUDIENCE ── */
+    .audience {
+      padding-bottom: 4rem;
+    }
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .audience-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      text-align: center;
+      padding: 4rem 1.5rem 5rem;
+      position: relative;
+    }
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(219,39,119,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bottom-cta h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .bottom-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1rem 2.5rem; }
+      .meta-row { gap: 1rem; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .time-badge { width: fit-content; padding: 0 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logos">
+      <a href="#" class="logo-nobi">
+        <img src="nobi-logo.png" alt="Nobi" style="height:24px;width:auto;" />
+      </a>
+      <span class="divider">&times;</span>
+      <a href="#" class="logo-stream">
+        <img src="stream-logo.png" alt="Stream Companies" />
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">
+      <span class="dot"></span>
+      Live Webinar
+    </div>
+    <h1>Your Shoppers Are Already Using AI to Buy Cars&mdash;<span class="highlight">Is Your Website Ready?</span></h1>
+    <p class="subtitle">BCG projects 40M+ car purchases will be influenced by AI by 2030. Join Stream and Nobi for a 30-minute session on what that means for your dealership&rsquo;s digital strategy&mdash;and what to do about it right now.</p>
+    <div class="meta-row">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <strong>May 6, 2026</strong>
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <strong>1:00 PM ET</strong>
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <strong>30 min + Q&amp;A</strong>
+      </div>
+    </div>
+    <a href="https://us06web.zoom.us/webinar/register/WN_T3clCx8wRaK52WygUm0Tsg" target="_blank" class="cta-btn">Reserve Your Seat</a>
+  </div>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">40M+</div>
+        <div class="label">Car purchases influenced by AI by 2030 (BCG)</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">30 min</div>
+        <div class="label">Actionable strategy, zero fluff</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">Live</div>
+        <div class="label">Demo on a real dealer site</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="agenda">
+    <p class="section-heading">Agenda</p>
+    <h2 class="section-title">What We&rsquo;ll Cover</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-badge">0 &ndash; 10 min</div>
+        <div>
+          <h3>The Shift Happening on Your Website Right Now</h3>
+          <p>How shopper behavior on dealer websites is changing&mdash;and what Stream sees in the data across their client base. Real patterns, real numbers.</p>
+          <div class="presenter">Presented by Drew Diehl, Stream Companies</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">10 &ndash; 25 min</div>
+        <div>
+          <h3>AI Search vs. Filter-and-Scroll: What Dealers Need to Know</h3>
+          <p>BCG research on where the market is headed, what &ldquo;AI search&rdquo; actually means for car shoppers, and a live demo of Nobi on a real dealership site. Plus a first look at what early adopters are seeing in VDP engagement and lead flow.</p>
+          <div class="presenter">Presented by Tyler, Nobi</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">25 &ndash; 30 min</div>
+        <div>
+          <h3>What to Do Right Now</h3>
+          <p>A joint Stream + Nobi breakdown of what dealers should be thinking about today&mdash;practical next steps, not a sales pitch.</p>
+          <div class="presenter">Joint: Stream + Nobi</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-badge">30 &ndash; 40 min</div>
+        <div>
+          <h3>Live Q&amp;A</h3>
+          <p>Your questions, answered live. Submit ahead of time or drop them in the chat.</p>
+          <div class="presenter">All speakers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKERS -->
+  <section class="speakers">
+    <p class="section-heading">Speakers</p>
+    <h2 class="section-title">Who You&rsquo;ll Hear From</h2>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <div class="speaker-avatar stream">
+          <img src="drew-diehl.jpg" alt="Drew Diehl" onerror="this.style.display='none';this.parentElement.textContent='D';" />
+        </div>
+        <h3>Drew Diehl</h3>
+        <div class="role">Executive Vice President, Client Strategy</div>
+        <div class="company stream">Stream Companies</div>
+        <p class="bio">A seasoned automotive marketing leader specializing in data-driven strategies that challenge industry norms. Drew leads a dedicated team across multiple channels, driving significant increases in traffic and conversion rates.</p>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar nobi">
+          <img src="tyler.jpg" alt="Tyler" onerror="this.style.display='none';this.parentElement.textContent='T';" />
+        </div>
+        <h3>Tyler</h3>
+        <div class="role">Co-Founder</div>
+        <div class="company nobi">Nobi</div>
+        <p class="bio">13+ years building and scaling tech startups that have partnered with F500 firms like Microsoft, Facebook, and Ford. Now co-founder of Nobi, the leading AI Shopping Assistant for major retail brands across the globe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="audience">
+    <p class="section-heading">Who This Is For</p>
+    <h2 class="section-title">Built for Dealer Decision-Makers</h2>
+    <div class="audience-tags">
+      <div class="audience-tag">General Managers</div>
+<div class="audience-tag">Ecommerce Directors</div>
+      <div class="audience-tag">Digital Marketing Directors</div>
+      <div class="audience-tag">BDC Directors</div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <h2>30 minutes. Zero fluff. Real strategy.</h2>
+    <p>Seats are limited&mdash;register now to save yours.</p>
+    <a href="https://us06web.zoom.us/webinar/register/WN_T3clCx8wRaK52WygUm0Tsg" target="_blank" class="cta-btn">Reserve Your Seat</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Nobi &times; Stream Companies. All rights reserved.
+  </footer>
+
+</body>
+</html>
